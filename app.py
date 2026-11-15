@@ -142,7 +142,11 @@ def main():
 
             elif choice == "3":
                 student_id = int(input("Student ID: "))
-                new_email = input("New email: ")
+                new_email = input("New email: ").strip()
+
+                if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", new_email):
+                    print("Error: Invalid email format.")
+                    continue
 
                 updateStudentEmail(student_id, new_email)
 
