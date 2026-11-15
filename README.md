@@ -6,7 +6,7 @@ This project is a Python application that connects to a PostgreSQL database to p
 
 ## Video Demonstration
 
-PASTE LINK HERE
+[View Demo Here](https://drive.google.com/file/d/13xtBje0iuP9eM1ylKEu80qyAf89pAF-v/view?usp=sharing)
 
 The video demonstrates database setup and all four CRUD operations, including verification in pgAdmin.
 
