@@ -113,7 +113,7 @@ def main():
                 email = input("Email: ").strip()
                 date = input("Enrollment date (YYYY-MM-DD, optional): ").strip()
 
-                # check names are not empty strings
+                # check names are not empty strings (in case user only enters a space)
                 if not first_name or not last_name:
                     print("Error: First and last name cannot be empty.")
                     continue
