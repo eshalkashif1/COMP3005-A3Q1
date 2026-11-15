@@ -54,7 +54,7 @@ cd COMP3005-Assignment3
 1. Open pgAdmin.
 2. Create a database named `assignment3_db`.
 3. Open the Query Tool for this database.
-4. Execute the SQL scripts in `database/setup.sql` (create_table.sql first, then insert.sql).
+4. Execute the SQL scripts in `db/` (create_table.sql first, then insert.sql).
 
 This creates the `students` table and inserts the three required initial records.
 
