@@ -1,6 +1,8 @@
 import os
 import psycopg2
 from dotenv import load_dotenv
+import re
+from datetime import datetime
 
 # load environment variables from .env
 load_dotenv()
@@ -27,7 +29,7 @@ def getAllStudents():
     if not students:
         print("No students found.")
         return
-
+    
     for student in students:
         print(student)
 
@@ -106,10 +108,35 @@ def main():
                 getAllStudents()
 
             elif choice == "2":
-                first_name = input("First name: ")
-                last_name = input("Last name: ")
-                email = input("Email: ")
-                date = input("Enrollment date (YYYY-MM-DD): ")
+                first_name = input("First name: ").strip()
+                last_name = input("Last name: ").strip()
+                email = input("Email: ").strip()
+                date = input("Enrollment date (YYYY-MM-DD, optional): ").strip()
+
+                # check names are not empty strings
+                if not first_name or not last_name:
+                    print("Error: First and last name cannot be empty.")
+                    continue
+
+                # check names do not contain numbers (validating format)
+                if any(char.isdigit() for char in first_name + last_name):
+                    print("Error: Names cannot contain numbers.")
+                    continue
+
+                # check correct email format
+                if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
+                    print("Error: Invalid email format.")
+                    continue
+
+                # check valid date (cant be 2022-13-41 for example), empty date is allowed
+                if date:
+                    try:
+                        datetime.strptime(date, "%Y-%m-%d")
+                    except ValueError:
+                        print("Error: Invalid date. Use YYYY-MM-DD.")
+                        continue
+                else:
+                    date = None
 
                 addStudent(first_name, last_name, email, date)
 
