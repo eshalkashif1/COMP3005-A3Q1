@@ -92,7 +92,7 @@ The application automatically loads these variables from `.env` using `python-do
 ### 6. Run the Application
 
 ```bash
-python application/main.py
+python app.py
 ```
 
 Select an option from the menu to perform the desired CRUD operation.
